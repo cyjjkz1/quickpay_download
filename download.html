@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)https://near.qfpay.com.cn/op_upload/165/15441499522.html -->
+<html style="font-size: 190.5px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>下载</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    
+    <style type="text/css">
+        html,body{
+            height: 100%;
+            width: 100%;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .top{
+            width: 100%;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 1.2666667rem;
+        }
+        .top>img{
+            width: 100%;
+            margin-bottom: 0.2rem;
+            font-size: 0;
+        }
+        p{
+            font-size: 0.5rem;
+            color: #030303;
+            margin-top: 0;
+            margin-bottom: 2rem;
+        }
+        .btn{
+            width: 8.666667rem;
+            padding: 0.293333rem;
+            font-size: 0.4rem !important;
+            margin-bottom: 0.666667rem;
+            text-align: center;
+            color: #fcbf20;
+            border: 0.02666667rem solid #fcbf20;
+            border-radius: 4px;
+        }
+        .bottom{
+            width: 100%;
+            padding-top: 0.333333rem;
+            padding-bottom: 0.666667rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            position: absolute;
+            bottom: 0;
+        }
+        .bottom>img{
+            width: 9.333333rem;
+            font-size: 0;
+            margin-bottom: 0.6666667rem;
+        }
+        .bottom>span{
+            font-size: 0.32rem;
+            color: #030303;
+        }
+        .dialog{
+            display: none;
+            position: fixed;
+            z-index: 11;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            text-align: right;
+        }
+        .dialog>img{
+            width: 8rem;
+            margin-top: 20px;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <img src="https://near.qfpay.com.cn/op_upload/165/15408820736.png">
+        <p>快捷支付</p>
+        <div class="btn" onclick="downIOS()">
+            ios下载
+        </div>
+        <div class="btn" onclick="downAd()">
+            android下载
+        </div>
+    </div>
+    <div class="bottom">
+        <span>快捷支付APP，只为你提供更好的</span>
+    </div>
+    <div class="dialog" onclick='closeDialog()'>
+        <img src="https://near.qfpay.com.cn/op_upload/165/154459834152.png">
+    </div>
+    <script type="text/javascript">
+        window.onload = function(){
+            var nowwidth = document.body.clientWidth;
+            var _html = document.getElementsByTagName('html')[0];
+            _html.style.fontSize = nowwidth/10 + 'px';
+        }
+        var downIOS = function(){
+            location.href = 'itms-services://?action=download-manifest&url=https://near.qfpay.com.cn/op_upload/165/154414940218.plist';
+        }
+        var downAd = function(){
+            var ua = navigator.userAgent;
+            if(!ua.match(/MicroMessenger/i)=="micromessenger"){
+                //copyUrl('https://near.qfpay.com.cn/op_upload/165/154414861134.apk');
+                document.getElementsByClassName('dialog')[0].style.display = 'inline';
+            }else{
+                location.href = 'https://near.qfpay.com.cn/op_upload/165/154414861134.apk';
+            }
+        }
+        var closeDialog = function(){
+            document.getElementsByClassName('dialog')[0].style.display = 'none';
+        }
+        var copyUrl = function(text){
+            if(text.indexOf('-') !== -1) {
+              let arr = text.split('-');
+              text = arr[0] + arr[1];
+            }
+            var textArea = document.createElement("textarea");
+            textArea.style.position = 'fixed';
+            textArea.style.top = '0';
+            textArea.style.left = '0';
+            textArea.style.width = '2em';
+            textArea.style.height = '2em';
+            textArea.style.padding = '0';
+            textArea.style.border = 'none';
+            textArea.style.outline = 'none';
+            textArea.style.boxShadow = 'none';
+            textArea.style.background = 'transparent';
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+
+            try {
+              var successful = document.execCommand('copy');
+              var msg = successful ? '成功复制下载地址，请在浏览器打开下载' : '该浏览器不支持点击复制到剪贴板，请联系客服下载最新APP';
+              window.alert(msg);
+            } catch (err) {
+              window.alert('该浏览器不支持点击复制到剪贴板，请联系客服下载最新APP');
+            }
+
+            document.body.removeChild(textArea);
+          }
+    </script>
+
+<div id="cli_dialog_div"></div></body></html>
